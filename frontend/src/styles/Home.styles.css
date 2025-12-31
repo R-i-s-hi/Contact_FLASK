@@ -1,0 +1,15 @@
+.Home {
+    padding-inline: 6rem;
+}
+
+@media(max-width: 1300px) {
+    .Home {
+        padding-inline: 3rem;
+    }
+}
+
+@media(max-width: 925px) {
+    .Home {
+        padding-inline: 1rem;
+    }
+}

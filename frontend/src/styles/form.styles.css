@@ -1,0 +1,16 @@
+form {
+    background-color: #f7f4f4;
+    min-width: 800px;
+}
+
+@media (max-width: 900px) {
+    form {
+        min-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    form {
+        min-width: 300px;
+    }
+}
