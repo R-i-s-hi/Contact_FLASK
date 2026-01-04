@@ -39,6 +39,21 @@ def create_contact():
         201
     )
 
+@app.route("/contact/<int:id>", methods=["GET"])
+def get_contact(id):
+    contact = Contact.query.get(id)
+    if not contact:
+        return jsonify(
+            {"error": "Contact not found!"},
+            404
+        )
+    return jsonify({
+        "id": contact.id,
+        "firstName": contact.first_name,
+        "lastName": contact.last_name,
+        "email": contact.email
+    })
+
 @app.route("/update_contact/<int:contact_id>", methods=["PUT"])
 def update_contact(contact_id):
     contact = Contact.query.get(contact_id)
@@ -62,9 +77,9 @@ def update_contact(contact_id):
         200
     )
 
-@app.route("/delete_contact/<int:contact_id>")
+@app.route("/delete_contact/<int:contact_id>", methods=["DELETE"])
 def delete_contact(contact_id):
-    contact = Contacts.query.get(contact_id)
+    contact = Contact.query.get(contact_id)
 
     if not contact:
         return jsonify(
@@ -82,7 +97,7 @@ def delete_contact(contact_id):
 
 if __name__ == "__main__":
 
-    # creat models
+    # create models
     with app.app_context():
         db.create_all()
 
