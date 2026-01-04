@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 # CORS Config
 app = Flask(__name__)
-CORS(app, supports_credentials=True, origins=["http://localhost:5173"])
+CORS(app, supports_credentials=True, origins=["http://localhost:5173", "https://contact-flask-67sx.onrender.com"])
 
 
 # DB Config
